@@ -27,3 +27,12 @@ end
 function appShortcut(app, key)
 	bindHyper(key, function() hs.application.launchOrFocus(app) end)
 end
+
+function moveToMonitor(monitor)
+	return function()
+		local win = hs.window.focusedWindow()
+		if (win) then
+			win:moveToScreen(hs.screen.find(monitor))
+		end
+	end
+end
