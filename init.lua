@@ -22,8 +22,9 @@ appShortcut("iTerm", "I")
 appShortcut("Slack", "S")
 appShortcut("Google Chrome", "G")
 appShortcut("Sublime Text", "T")
-
-
+appShortcut("Intellij IDEA CE", "J")
+appShortcut("zoom.us", "Z")
+appShortcut("Spotify", "O")
 
 -- all done now
 hs.alert.show("Config loaded")
