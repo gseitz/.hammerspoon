@@ -9,9 +9,9 @@ hs.window.animation = 0
 -- bindings
 bindHyper("R", function() hs.reload() end)
 
-bindHyper("Left", push(0, 0, 1/2, 1))
-bindHyper("Right", push(1/2, 0, 1/2, 1))
-bindHyper("F", push(0, 0, 1, 1))
+bindHyper("Left", function() pushActive(0, 0, 1/2, 1) end)
+bindHyper("Right", function() pushActive(1/2, 0, 1/2, 1) end)
+bindHyper("F", function() pushActive(0, 0, 1, 1) end)
 
 bindHyper("`", function() hs.alert.show(os.date("%A %b %d, %Y - %H:%M"), 4) end)
 

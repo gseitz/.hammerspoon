@@ -4,10 +4,12 @@
 -- For x and y: use 0 to expand fully in that dimension, 0.5 to expand halfway
 -- For w and h: use 1 for full, 0.5 for half
 -------------------------------------------------------------------------------
-function push(x, y, w, h)
-  return function ()
-  	local win = hs.window.focusedWindow()
-  	local id = win:id()
+function pushActive(x, y, w, h)
+	push(hs.window.focusedWindow(), x, y, w, h)
+end
+
+function push(win, x, y, w, h)
+	local id = win:id()
 	local f = win:frame()
 	local screen = win:screen()
 	local max = screen:frame()
@@ -17,7 +19,6 @@ function push(x, y, w, h)
 	f.w = max.w*w
 	f.h = max.h*h
 	win:setFrame(f, 0)
-  end
 end
 
 function bindHyper(key, func)
