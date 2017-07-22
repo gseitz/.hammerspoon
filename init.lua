@@ -1,4 +1,5 @@
 require "utils"
+spaces = require("hs._asm.undocumented.spaces")
 
 local main_monitor = "Color LCD"
 local second_monitor = "PHL 272S4L"
@@ -25,6 +26,22 @@ appShortcut("Sublime Text", "T")
 appShortcut("Intellij IDEA CE", "J")
 appShortcut("zoom.us", "Z")
 appShortcut("Spotify", "O")
+
+bindHyper("6", function ()
+	local newSpaceId = spaces.createSpace()
+	local win
+
+	win = newWindow("Google Chrome", newSpaceId)
+	push(win, 0, 0, 1/2, 1)
+
+	win = newWindow("iTerm2", newSpaceId)
+	push(win, 1/2, 0, 1/2, 1/2)
+
+	win = newWindow("Sublime Text", newSpaceId)
+	push(win, 1/2, 1/2, 1/2, 1/2)
+
+	spaces.changeToSpace(newSpaceId)
+end)
 
 -- all done now
 hs.alert.show("Config loaded")

@@ -31,6 +31,14 @@ function appShortcut(app, key)
 	bindHyper(key, function() hs.application.launchOrFocus(app) end)
 end
 
+function newWindow(appName, space)
+	local app = hs.application.get(appName)
+	app:selectMenuItem("New Window")
+	local win = app:focusedWindow()
+	spaces.moveWindowToSpace(win:id(), space)
+	return win
+end
+
 function moveToMonitor(monitor)
 	return function()
 		local win = hs.window.focusedWindow()
