@@ -21,8 +21,10 @@ function push(win, x, y, w, h)
 	win:setFrame(f, 0)
 end
 
+local HYPER = {"cmd", "alt", "ctrl", "shift"}
+
 function bindHyper(key, func)
-	hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, key, func)
+	hs.hotkey.bind(HYPER, key, func)
 end
 
 function appShortcut(app, key)
